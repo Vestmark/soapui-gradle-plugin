@@ -3,17 +3,11 @@
  */
 sourceSets {
     integTest {
-        java.srcDir file('src/integTest/groovy')
-        resources.srcDir file('src/integTest/resources')
-        compileClasspath = sourceSets.main.output + configurations.testRuntime
-        runtimeClasspath = output + compileClasspath
+        compileClasspath += (sourceSets.main.compileClasspath + sourceSets.test.runtimeClasspath)
     }
 }
 
 task integTest(type: Test, group: 'verification') {
-    testClassesDir = sourceSets.integTest.output.classesDir
-    // // gradle API 4 deprecations recommends use instead:
-    // testClassesDirs = sourceSets.integTest.output.classesDirs
+    testClassesDirs = sourceSets.integTest.output.classesDirs
     classpath = sourceSets.integTest.runtimeClasspath
-    reports.html.setDestination(file("$buildDir/reports/integTests"))
 }

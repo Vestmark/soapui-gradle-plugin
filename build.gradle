@@ -4,7 +4,7 @@ buildscript {
         jgoodiesBindingVersion = '2.0.1'
         jgoodiesFormsVersion = '1.0.7'
         jgoodiesLooksVersion = '2.2.0'
-        gradleApiVersion = 2.12
+        gradleApiVersion = 6.5
         projectUrl = 'https://github.com/byte-shifter-ltd/soapui-gradle-plugin'
         pluginDescription = 'Gradle plugin for running SoapUI test projects using testrunner'
     }
