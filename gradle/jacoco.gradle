@@ -2,8 +2,5 @@ jacocoTestReport {
     reports {
         xml.enabled true
         csv.enabled false
-        html.setDestination(file("$buildDir/reports/jacocoTestReport"))
     }
 }
-
-test.finalizedBy jacocoTestReport

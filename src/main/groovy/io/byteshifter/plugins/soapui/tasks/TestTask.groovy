@@ -25,6 +25,7 @@ package io.byteshifter.plugins.soapui.tasks
 
 import com.eviware.soapui.SoapUI
 import com.eviware.soapui.tools.SoapUITestCaseRunner
+import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.Optional
 
 /**
@@ -36,24 +37,28 @@ class TestTask extends SoapUITask {
     /**
      * The TestSuite to run project file to test with
      */
+    @Input
     @Optional
     String testSuite
 
     /**
      * The TestCase to run project file to test with
      */
+    @Input
     @Optional
     String testCase
 
     /**
      * The username to use for authentication challenges
      */
+    @Input
     @Optional
     String username
 
     /**
      * The password to use for authentication challenges
      */
+    @Input
     @Optional
     String password
 
@@ -63,84 +68,99 @@ class TestTask extends SoapUITask {
      * outgoing request containing the specified username and password. Set to
      * either 'Text' or 'Digest'
      */
+    @Input
     @Optional
     String wssPasswordType
 
     /**
      * The domain to use for authentication challenges
      */
+    @Input
     @Optional
     String domain
 
     /**
      * The host to use for requests
      */
+    @Input
     @Optional
     String host
 
     /**
      * Overrides the endpoint to use for requests
      */
+    @Input
     @Optional
     String endpoint
 
     /**
      * Sets the output folder for reports
      */
+    @Input
     @Optional
     String outputFolder
 
     /**
      * Turns on printing of reports
      */
+    @Input
     boolean printReport
 
     /**
      * Enabled interactive groovy scripts
      */
+    @Input
     boolean interactive
 
     /**
      * Turns on exporting of all results
      */
+    @Input
     boolean exportAll
 
     /**
      * Turns on creation of reports in junit style
      */
+    @Input
     boolean junitReport = false
 
     /**
      * Tells Test Runner to skip tests.
      */
-    @Optional
+    @Input
     boolean skip
 
     /**
      * If set ignore failed tests
      */
+    @Input
     boolean testFailIgnore
 
     /**
      * Specified global property values soapui.saveAfterRun
      */
+    @Input
     @Optional
     String[] globalProperties
 
     /**
      * Specified project property values
      */
+    @Input
     @Optional
     String[] projectProperties
 
     /**
      * Saves project file after running tests
      */
+    @Input
     boolean saveAfterRun
 
     /**
      * SoapUI Properties.
      */
+    @Input
+    @Optional
     Properties soapuiProperties
 
     TestTask() {
