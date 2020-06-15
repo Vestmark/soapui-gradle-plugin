@@ -1,16 +1,20 @@
+configurations {
+    intTestImplementation.extendsFrom commonTestImplementation
+    intTestRuntimeOnly.extendsFrom commonTestRuntimeOnly
+}
+
 sourceSets {
     intTest {
-        compileClasspath += sourceSets.main.output + sourceSets.test.output
-        runtimeClasspath += sourceSets.main.output + sourceSets.test.output
+        compileClasspath += sourceSets.main.output
+        runtimeClasspath += sourceSets.main.output
     }
 }
 
-configurations {
-    intTestImplementation.extendsFrom implementation
-    intTestRuntimeOnly.extendsFrom runtimeOnly
-}
-
 task integTest(type: Test, group: 'verification') {
+    shouldRunAfter test
     testClassesDirs = sourceSets.intTest.output.classesDirs
     classpath = sourceSets.intTest.runtimeClasspath
 }
+
+check.dependsOn integTest
+

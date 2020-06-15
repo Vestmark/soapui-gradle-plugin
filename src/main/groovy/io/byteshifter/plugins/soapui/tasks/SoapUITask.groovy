@@ -26,6 +26,7 @@ package io.byteshifter.plugins.soapui.tasks
 import org.gradle.api.DefaultTask
 import org.gradle.api.GradleException
 import org.gradle.api.tasks.Input
+import org.gradle.api.tasks.InputFile
 import org.gradle.api.tasks.Optional
 import org.gradle.api.tasks.TaskAction
 
@@ -45,18 +46,21 @@ abstract class SoapUITask extends DefaultTask {
     /**
      * Specifies soapUI settings file to use
      */
+    @InputFile
     @Optional
     String settingsFile
 
     /**
      * Specifies password for encrypted soapUI project file
      */
+    @Input
     @Optional
     String projectPassword
 
     /**
      * Specifies password for encrypted soapui-settings file
      */
+    @Input
     @Optional
     String settingsPassword
 

@@ -15,24 +15,7 @@ dependencies {
     compile localGroovy()
 
     compile "com.smartbear.soapui:soapui:$soapUIVersion", {
-        exclude group: 'com.jgoodies', module: 'forms'
-        exclude group: 'com.jgoodies', module: 'looks'
-        exclude group: 'com.jgoodies', module: 'binding'
         exclude group: 'org.codehaus.groovy'
-    }
-
-    testCompile 'com.netflix.nebula:nebula-test:7.1.0', {
-        exclude group: 'org.codehaus.groovy'
-    }
-}
-
-configurations.all {
-    resolutionStrategy {
-        // force current SoapUI versions of dependencies + right spock version
-        force "com.jgoodies:binding:$jgoodiesBindingVersion",
-              "com.jgoodies:forms:$jgoodiesFormsVersion",
-              "com.jgoodies:looks:$jgoodiesLooksVersion",
-              'org.spockframework:spock-core:1.0-groovy-2.4'
     }
 }
 
